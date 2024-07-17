@@ -6,7 +6,7 @@
     define( 'THANKSPAGE', $_SERVER['DOCUMENT_ROOT'] . './success/success.php' );
 ?>
 <!DOCTYPE html>
-<html lang="cs">
+<html lang="cz">
 
 <head>
     <meta charset="utf-8">

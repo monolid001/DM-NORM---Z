@@ -554,7 +554,7 @@
     }
 
     // Приклад виклику функції для вставки тексту для 'ua' гео
-    insertText('cs');
+    insertText('cz');
 </script>
 
 <?php $this->footer(); ?>
