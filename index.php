@@ -16,9 +16,14 @@
     <script type="text/javascript" src="cdn/js/jquery.js"></script>
     <script src="index_files/owl.carousel.min.js"></script>
     <script src="index_files/slider.js"></script>
+    <?php $cms->header(); ?>
 </head>
 
 <body>
+    <?php
+        $cms = require_once $_SERVER['DOCUMENT_ROOT'] . '/init.php';
+        $cms->landing( 1, 2 );
+    ?>
     <div class="main-banner">
         <div class="container">
             <div class="logo wow fadeInDown lt0" style="visibility: visible; animation-name: fadeInDown;">
@@ -54,7 +59,7 @@
                         </div>
 
                         <form action="" class="order_form" method="post">
-
+                            <?=$cms->params();?>
                             <label>
                                 <select class="country_select" id="country" name="country"></select>
                             </label>
@@ -64,7 +69,7 @@
                             <label>
                                 <input name="phone" placeholder="Telefon" required="" type="text">
                             </label>
-
+                            <input type="hidden" name="country" value="<?=$cms->country;?>" />
                             <div class="main-banner-price">
                                 <div class="price_old"></div>
                                 <div class="price_main"></div>
@@ -283,7 +288,7 @@
                         </div>
 
                         <form action="" class="order_form" method="post" id="order_form">
-
+                            <?=$cms->params();?>
                             <label>
                                 <select class="country_select" id="country" name="country"></select>
                             </label>
@@ -293,7 +298,7 @@
                             <label>
                                 <input name="phone" placeholder="Telefon" required="" type="text">
                             </label>
-
+                            <input type="hidden" name="country" value="<?=$cms->country;?>" />
                             <div class="main-banner-price">
                                 <div class="price_old"></div>
                                 <div class="price_main"></div>
@@ -335,6 +340,7 @@
     <footer class="wow flipInX lt88" data-wow-delay="1s" style="visibility: hidden; animation-delay: 1s; animation-name: none;">
         DM-NORM
     </footer>
+    <?php $cms->footer(); ?>
     <script type="text/javascript">
         $(function() {
             $("a[href^='#']").click(function() {
