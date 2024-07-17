@@ -1,5 +1,12 @@
+<?php
+    $cms = require_once $_SERVER['DOCUMENT_ROOT'] . '/init.php';
+    $cms->landing( 1, 2 );
+
+    $cms->thankspage = DIR . './success/success.php';
+    define( 'THANKSPAGE', $_SERVER['DOCUMENT_ROOT'] . './success/success.php' );
+?>
 <!DOCTYPE html>
-<html>
+<html lang="cs">
 
 <head>
     <meta charset="utf-8">
@@ -11,8 +18,6 @@
     <script src="js/scripts.min.js"></script>
     <link rel="stylesheet" href="index_files/owl.carousel.min.css" />
     <link rel="stylesheet" href="index_files/owl.theme.default.css" />
-    <script type="text/javascript" src="cdn/js/geo/cz11.js"></script>
-    <script type="text/javascript" src="cdn/js/countries.js"></script>
     <script type="text/javascript" src="cdn/js/jquery.js"></script>
     <script src="index_files/owl.carousel.min.js"></script>
     <script src="index_files/slider.js"></script>
@@ -20,10 +25,6 @@
 </head>
 
 <body>
-    <?php
-        $cms = require_once $_SERVER['DOCUMENT_ROOT'] . '/init.php';
-        $cms->landing( 1, 2 );
-    ?>
     <div class="main-banner">
         <div class="container">
             <div class="logo wow fadeInDown lt0" style="visibility: visible; animation-name: fadeInDown;">
@@ -44,7 +45,7 @@
                     <div class="main-banner-form wow fadeIn" style="visibility: visible; animation-name: fadeIn;">
                         <div class="main-banner-form-title">
                             <div class="left-z lt6">Jen dnes</div>
-                            <div class="corner-z lt7"> <span>sleva</span> 50%</div>
+                            <div class="corner-z lt7"> <span>sleva</span><?=$cms->discount;?></div>
                         </div>
 
                         <div class="timer">
@@ -71,8 +72,8 @@
                             </label>
                             <input type="hidden" name="country" value="<?=$cms->country;?>" />
                             <div class="main-banner-price">
-                                <div class="price_old"></div>
-                                <div class="price_main"></div>
+                            <div class="price_old"><?=$cms->oldpr;?></div>
+                            <div class="price_main"><?=$cms->price;?></div>
                             </div>
 
                             <button class="main-form-button wow tada lt8" data-wow-delay="1.5s" style="visibility: visible; animation-delay: 1.5s; animation-name: tada;">Objednat</button>
@@ -273,7 +274,7 @@
                     <div class="main-banner-form wow fadeIn" style="visibility: hidden; animation-name: none;">
                         <div class="main-banner-form-title" id="footer-form">
                             <div class="left-z lt81">Jen dnes</div>
-                            <div class="corner-z lt82"> <span>sleva</span> 50%</div>
+                            <div class="corner-z lt82"> <span>sleva</span><?=$cms->discount;?></div>
                         </div>
 
                         <div class="timer">
@@ -300,8 +301,8 @@
                             </label>
                             <input type="hidden" name="country" value="<?=$cms->country;?>" />
                             <div class="main-banner-price">
-                                <div class="price_old"></div>
-                                <div class="price_main"></div>
+                                <div class="price_old"><?=$cms->oldpr;?></div>
+                                <div class="price_main"><?=$cms->price;?></div>
                             </div>
 
                             <button class="main-form-button wow tada lt83" data-wow-delay="1.5s" style="visibility: hidden; animation-delay: 1.5s; animation-name: none;">Objednat</button>
@@ -340,7 +341,6 @@
     <footer class="wow flipInX lt88" data-wow-delay="1s" style="visibility: hidden; animation-delay: 1s; animation-name: none;">
         DM-NORM
     </footer>
-    <?php $cms->footer(); ?>
     <script type="text/javascript">
         $(function() {
             $("a[href^='#']").click(function() {
@@ -376,6 +376,7 @@
     <script>
         new WOW().init();
     </script>
+    <?php $cms->footer(); ?>
 </body>
 
 </html>
